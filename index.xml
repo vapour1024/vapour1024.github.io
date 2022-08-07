@@ -6,7 +6,7 @@
     <description>Recent content on vapour blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Aug 2022 22:53:47 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Aug 2022 00:11:58 +0800</lastBuildDate>
     
         <atom:link href="https://vapour1024.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,11 @@
     
         <item>
         <title>K8s_introduction</title>
-        <link>https://vapour1024.github.io/k8s_introduction/</link>
+        <link>https://vapour1024.github.io/post/k8s_introduction/</link>
         <pubDate>Mon, 08 Aug 2022 00:11:58 +0800</pubDate>
         
-        <guid>https://vapour1024.github.io/k8s_introduction/</guid>
-        <description>vapour blog https://vapour1024.github.io/k8s_introduction/ -&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+        <guid>https://vapour1024.github.io/post/k8s_introduction/</guid>
+        <description>vapour blog https://vapour1024.github.io/post/k8s_introduction/ -&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
 &lt;h2 id=&#34;system&#34;&gt;system&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install -y git vim curl jq
@@ -70,27 +70,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# clean install&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo kubeadm reset
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo rm -rf /etc/cni/net.d $HOME/.kube/config
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://vapour1024.github.io/k8s_introduction/ - </description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://vapour1024.github.io/post/k8s_introduction/ - </description>
         </item>
     
     
     
         <item>
-        <title>First</title>
-        <link>https://vapour1024.github.io/post/first/</link>
-        <pubDate>Sun, 07 Aug 2022 22:53:47 +0800</pubDate>
-        
-        <guid>https://vapour1024.github.io/post/first/</guid>
-        <description>vapour blog https://vapour1024.github.io/post/first/ -&lt;h3 id=&#34;hello-hugo&#34;&gt;Hello Hugo&lt;/h3&gt;
-&lt;h1 id=&#34;第一篇博客&#34;&gt;第一篇博客&lt;/h1&gt;
-&lt;h1 id=&#34;hugo配置测试&#34;&gt;hugo配置测试&lt;/h1&gt;
-- https://vapour1024.github.io/post/first/ - </description>
-        </item>
-    
-    
-    
-        <item>
-        <title>About</title>
+        <title>关于本站</title>
         <link>https://vapour1024.github.io/about/</link>
         <pubDate>Sun, 07 Aug 2022 22:31:18 +0800</pubDate>
         
