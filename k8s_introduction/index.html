@@ -163,6 +163,24 @@
 						
 						
 							<li>
+								<a href="#docker" onclick="onNavClick(`#docker-nav`)" id="docker-nav">
+									docker
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
 								<a href="#minikube" onclick="onNavClick(`#minikube-nav`)" id="minikube-nav">
 									minikube
 								</a>
@@ -267,6 +285,24 @@
 							<li>
 								<a href="#system" onclick="onNavClick(`#system-nav`)" id="system-nav">
 									system
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#docker" onclick="onNavClick(`#docker-nav`)" id="docker-nav">
+									docker
 								</a>
 							</li>
 						
@@ -388,24 +424,27 @@
 <h2 id="system">system</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt update
 </span></span><span style="display:flex;"><span>sudo apt install -y git vim curl jq
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sudo apt install -y openssh-server
-</span></span><span style="display:flex;"><span>ip addr
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo apt install -y docker.io <span style="color:#75715e">#安装Docker Engin</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sudo service docker start         <span style="color:#75715e">#启动docker服务</span>
-</span></span><span style="display:flex;"><span>sudo usermod -aG docker <span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>   <span style="color:#75715e">#当前用户加入docker组</span>
+</span></span></code></pre></div><h2 id="docker">docker</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#安装Docker Engine</span>
+</span></span><span style="display:flex;"><span>sudo apt install -y docker.io
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#启动docker服务</span>
+</span></span><span style="display:flex;"><span>sudo service docker start
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#当前用户加入docker组</span>
+</span></span><span style="display:flex;"><span>sudo usermod -aG docker <span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#退出当前用户以生效</span>
 </span></span><span style="display:flex;"><span>exit
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>docker version 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#查看docker相关信息</span>
+</span></span><span style="display:flex;"><span>docker version
 </span></span><span style="display:flex;"><span>docker info
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>docker ps  <span style="color:#75715e">#它会列出当前系统里运行的容器</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>docker pull busybox  <span style="color:#75715e">#拉取busybox镜像</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>docker images <span style="color:#75715e">#它会列出当前 Docker 所存储的所有镜像</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#列出当前系统里运行的容器</span>
+</span></span><span style="display:flex;"><span>docker ps
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#拉取busybox镜像</span>
+</span></span><span style="display:flex;"><span>docker pull busybox
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#列出当前 Docker 所存储的所有镜像</span>
+</span></span><span style="display:flex;"><span>docker images
 </span></span></code></pre></div><h2 id="minikube">minikube</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>minikube start --kubernetes-version<span style="color:#f92672">=</span>v1.23.3 --image-mirror-country<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cn&#39;</span> --force
 </span></span><span style="display:flex;"><span>
