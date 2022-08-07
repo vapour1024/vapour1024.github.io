@@ -1,9 +1,9 @@
 <?xml-stylesheet href="/rss.xsl" type="text/xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vapour blog</title>
+    <title>vapour&#39;s blog</title>
     <link>https://vapour1024.github.io/</link>
-    <description>Recent content on vapour blog</description>
+    <description>Recent content on vapour&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 08 Aug 2022 00:11:58 +0800</lastBuildDate>
@@ -18,7 +18,7 @@
         <pubDate>Mon, 08 Aug 2022 00:11:58 +0800</pubDate>
         
         <guid>https://vapour1024.github.io/post/k8s_introduction/</guid>
-        <description>vapour blog https://vapour1024.github.io/post/k8s_introduction/ -&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+        <description>vapour&#39;s blog https://vapour1024.github.io/post/k8s_introduction/ -&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
 &lt;h2 id=&#34;system&#34;&gt;system&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install -y git vim curl jq
@@ -81,7 +81,7 @@
         <pubDate>Sun, 07 Aug 2022 22:31:18 +0800</pubDate>
         
         <guid>https://vapour1024.github.io/about/</guid>
-        <description>vapour blog https://vapour1024.github.io/about/ -&lt;h1 id=&#34;这里是vapour的博客&#34;&gt;这里是vapour的博客&lt;/h1&gt;
+        <description>vapour&#39;s blog https://vapour1024.github.io/about/ -&lt;h1 id=&#34;这里是vapour的博客&#34;&gt;这里是vapour的博客&lt;/h1&gt;
 - https://vapour1024.github.io/about/ - </description>
         </item>
     
