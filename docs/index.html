@@ -7,20 +7,53 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/prismjs@v1.x/themes/prism.css" rel="stylesheet" /> -->
+  <!-- Theme: Simple -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
+  <!-- Theme: Simple (light + dark) -->
+<!-- <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"> -->
+
+
+
 </head>
 <body>
+  <style type="text/css">
+    body {
+      overflow: auto !important;
+    }
+  </style>
+  
   <div id="app"></div>
+  
   <script>
     window.$docsify = {
-      name: '',
-      repo: ''
+      name: 'vapour1024 blog',
+      repo: 'https://github.com/vapour1024',
+      // onlyCover: true,
+      loadSidebar: true,
+      // loadNavbar: true,
+      coverpage: true,
+      // maxLevel: 3,
+      subMaxLevel: 2,
+      // themeable: {
+      //     readyTransition : true, // default
+      //     responsiveTables: true  // default
+      // }
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-prism@latest/dist/docsify-prism.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@v1.x/components/prism-core.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/prismjs@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
+
+  <!-- docsify-themeable -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script> -->
+
 </body>
 </html>

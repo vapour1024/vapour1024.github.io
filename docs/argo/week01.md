@@ -1,0 +1,346 @@
+# week01
+# 数组
+
+基本特点：支持随机访问
+
+关键：索引与寻址
+
+内存排布：一段连续的存储空间
+
+## 基本操作及时间复杂度
+
+- 查找元素 O(1)
+  
+- 插入元素 O(n)
+  
+- 删除元素 O(n)
+  
+- 添加元素（push back） O(1)
+  
+- 添加元素（push front） O(n)
+  
+
+## 变长数组
+
+可以根据实际情况调整底层数组的大小
+
+### 如何实现一个变长数组
+
+- 索引与随机访问
+  
+- 分配多长的连续空间
+  
+- 空间不够用怎么办
+  
+- 空间利用率低怎么办
+  
+
+#### 变长数组的简单实现
+
+1. 初始化一个空数组，分配常数大小的连续空间
+  
+2. push back时进行空间检测，若空间不够，则执行扩容，重新申请两倍大小的空间，拷贝数据到新数组并释放旧数组
+  
+3. pop back时进行空间检测，若空间利用率不足25%，则释放一半的空间
+  
+
+### 变长数组复杂度分析
+
+- push back
+  
+  均摊复杂度O(1)，在空数组中连续插入n个元素，总插入/拷贝次数为n+n/2+n/3+...<2n，平均到n次操作，均摊复杂度为O(1)
+  
+- pop back
+  
+  均摊复杂度O(1)，一次扩容到一次释放至少需要删除0.5n次，平均到n次操作，均摊复杂度为O(1)
+  
+
+释放空间的阈值比例一般需要低于扩容比例的倒数，如果等于，在边界处的操作会导致数组频繁的扩容与释放
+
+## 例题
+
+[88. 合并两个有序数组 - 力扣（LeetCode）](https://leetcode.cn/problems/merge-sorted-array/)
+
+```go
+func merge(nums1 []int, m int, nums2 []int, n int) {
+    i := m - 1
+    j := n - 1
+    // 主题思路：ij两个指针倒着扫描，谁大要谁
+    // 细节判断：i,j不能越界（一个<0，就要另一个）
+    for k := m + n - 1; k >= 0; k-- {
+        if j < 0 || (i >= 0 && nums1[i] >= nums2[j]) {
+            nums1[k] = nums1[i]
+            i--
+        } else {
+            nums1[k] = nums2[j]
+            j--
+        }
+    }
+}
+```
+
+[26. 删除有序数组中的重复项 - 力扣（LeetCode）](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
+
+```go
+func removeDuplicates(nums []int) int {
+    n := 0
+    for i := 0; i < len(nums); i++ {
+        if i == 0 || nums[i] != nums[i-1] {
+            nums[n] = nums[i]
+            n++
+        }
+    }
+    return n
+}
+```
+
+[283. 移动零 - 力扣（LeetCode）](https://leetcode.cn/problems/move-zeroes/submissions/)
+
+```go
+func moveZeroes(nums []int) {
+    n := 0
+    for i := 0; i < len(nums); i++ {
+        if nums[i] != 0 {
+            nums[n] = nums[i]
+            n++
+        }
+    }
+    for n < len(nums) {
+        nums[n] = 0
+        n++
+    }
+}
+```
+
+# 链表
+
+## 基本操作及时间复杂度
+
+- 查找元素 O(n)
+  
+- 插入元素 O(1)
+  
+- 删除元素 O(1)
+  
+- 添加元素（push back） O(1)
+  
+- 添加元素（push front） O(1)
+  
+
+## 单链表
+
+## 双链表
+
+## 例题
+
+[206. 反转链表 - 力扣（LeetCode）](https://leetcode.cn/problems/reverse-linked-list/submissions/)
+
+```go
+type ListNode struct {
+    Val  int
+    Next *ListNode
+}
+
+func reverseList(head *ListNode) *ListNode {
+    var last *ListNode
+    for head != nil {
+        nextHead := head.Next
+        head.Next = last
+        last = head
+        head = nextHead
+    }
+    return last
+}
+```
+
+[25. K 个一组翻转链表 - 力扣（LeetCode）](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
+
+```go
+type ListNode struct {
+    Val  int
+    Next *ListNode
+}
+
+func reverseKGroup(head *ListNode, k int) *ListNode {
+    protect := &ListNode{Next: head}
+    last := protect
+    for head != nil {
+        end := getEndNode(head, k)
+        if end == nil {
+            break
+        }
+        nextGroupHead := end.Next
+        reverseListFromHeadToEnd(head, end)
+        last.Next = end
+        head.Next = nextGroupHead
+        last = head
+        head = nextGroupHead
+    }
+    return protect.Next
+}
+
+func reverseListFromHeadToEnd(head *ListNode, end *ListNode) {
+    if head == end {
+        return
+    }
+    last := head
+    head = head.Next
+    for head != end {
+        nextHead := head.Next
+        head.Next = last
+        last = head
+        head = nextHead
+    }
+    end.Next = last
+}
+
+func getEndNode(head *ListNode, k int) *ListNode {
+    for head != nil {
+        k--
+        if k == 0 {
+            break
+        }
+        head = head.Next
+    }
+    return head
+}
+```
+
+[141. 环形链表 - 力扣（LeetCode）](https://leetcode.cn/problems/linked-list-cycle/)
+
+```go
+type ListNode struct {
+    Val  int
+    Next *ListNode
+}
+
+func hasCycle(head *ListNode) bool {
+    fast := head
+    for fast != nil && fast.Next != nil {
+        fast = fast.Next.Next
+        head = head.Next
+        if head == fast {
+            return true
+        }
+    }
+    return false
+}
+```
+
+[20. 有效的括号 - 力扣（LeetCode）](https://leetcode.cn/problems/valid-parentheses/)
+
+```go
+func isValid(s string) bool {
+    stack := make([]int32,0,len(s)/2)
+    for _, c := range s {
+        if c == '(' || c == '[' || c == '{' {
+            stack = append(stack, c)
+        } else {
+            if len(stack) == 0 {
+                return false
+            }
+            if c == ')' {
+                if stack[len(stack)-1] != '(' {
+                    return false
+                }
+            } else if c == ']' {
+                if stack[len(stack)-1] != '[' {
+                    return false
+                }
+            } else if stack[len(stack)-1] != '{' {
+                return false
+            }
+            stack = stack[:len(stack)-1]
+        }
+    }
+    return len(stack) == 0
+}
+```
+
+[155. 最小栈 - 力扣（LeetCode）](https://leetcode.cn/problems/min-stack/)
+
+```go
+type MinStack struct {
+    stack       []int
+    preMinStack []int
+}
+
+func Constructor() MinStack {
+    return MinStack{}
+}
+
+func (this *MinStack) Push(val int) {
+    if len(this.stack) == 0 {
+        this.preMinStack = append(this.stack, val)
+        this.stack = append(this.stack, val)
+        return
+    }
+
+    currentMin := this.GetMin()
+    this.stack = append(this.stack, val)
+    if val < currentMin {
+        this.preMinStack = append(this.preMinStack, val)  
+    } else {
+        this.preMinStack = append(this.preMinStack, currentMin)
+    }
+
+}
+
+func (this *MinStack) Pop() {
+    this.stack = this.stack[:len(this.stack)-1]
+    this.preMinStack = this.preMinStack[:len(this.preMinStack)-1]
+}
+
+func (this *MinStack) Top() int {
+    if len(this.stack) > 0 {
+        return this.stack[len(this.stack)-1]
+    } else {
+        return 0
+    }
+}
+
+func (this *MinStack) GetMin() int {
+    if len(this.preMinStack) > 0 {
+        return this.preMinStack[len(this.preMinStack)-1]
+    } else {
+        return 0
+    }
+}
+```
+
+[150. 逆波兰表达式求值 - 力扣（LeetCode）](https://leetcode.cn/problems/evaluate-reverse-polish-notation/)
+
+```go
+func evalRPN(tokens []string) int {
+	var numList []int
+	for _, token := range tokens {
+		if token == "+" || token == "-" || token == "*" || token == "/" {
+			b := numList[len(numList)-1]
+			a := numList[len(numList)-2]
+			numList = numList[0 : len(numList)-2]
+			numList = append(numList, calc(a, b, token))
+		} else {
+			num, _ := strconv.Atoi(token)
+			numList = append(numList, num)
+		}
+
+	}
+	return numList[len(numList)-1]
+
+}
+func calc(a int, b int, op string) int {
+	if op == "+" {
+		return a + b
+	}
+	if op == "-" {
+		return a - b
+	}
+	if op == "*" {
+		return a * b
+	}
+	if op == "/" {
+		return a / b
+	}
+	return 0
+}
+```
